@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header" role="tab" id="headingTwo2">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+    aria-expanded="false" aria-controls="collapseTwo2">
+      <h5 class="mb-0">
+          Risk Profile <i class="fas fa-angle-down rotate-icon"></i>
+      </h5>
+    </a>
+  </div>
+  <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+      data-parent="#accordionEx">
+    <div class="card-block">
+      <h5 class="card-hl card-title ml-2 mt-2">Results</h5>
+      <div class="row mb-2" *ngIf=riskProfileInput.result>
+        <div class="col-md-6 pl-4">
+          <h6 class="card-subtitle text-muted">Risk stats -></h6>
+          <p class="card-text mb-0">Correlation risk: <strong>{{ riskProfileInput.result.ccrScore | number:'1.0-2' }}</strong></p>
+          <p class="card-text">S&P 500 Beta: <strong>{{ riskProfileInput.result.sP500Beta | number:'1.0-2' }}</strong></p>
+          <h6 class="card-subtitle text-muted">Performance stats -></h6>
+          <p class="card-text mb-0">Worst scenario impact: <strong>{{ riskProfileInput.result.worstScenarioImpact | number:'1.0-2' }}</strong></p>
+          <p class="card-text mb-0">Expected return: <strong>{{ riskProfileInput.result.expectedReturn | number:'1.0-2' }}</strong></p>
+          <p class="card-text">Expected return (5Yr): <strong>{{ riskProfileInput.result.expectedReturn5Yr | number:'1.0-2' }}</strong></p>
+        </div>
+        <div class="col-md-6">
+          <h6 class="card-subtitle text-muted">Portfolio stats -></h6>
+          <p class="card-text ">Yield: <strong>{{ riskProfileInput.result.yield | number:'1.0-2' }}</strong></p>
+          <h6 class="card-subtitle text-muted">Expenses -></h6>
+          <p class="card-text">Expenses: <strong>{{ riskProfileInput.result.expenseRatio | number:'1.0-2' }}</strong></p>
+        </div>  
+      </div>
+    </div>
+    <div class="card-block border-top">
+        <h5 class="card-hl card-title ml-2 mt-2">Positions</h5>
+        <div class="row mb-2" *ngIf=riskProfileInput.result>
+          <div class="col-md-12 pl-4">
+              <div *ngFor="let position of riskProfileInput.result.jsonPositions" class="mb-2 pt-2">
+                <h6 class="card-subtitle text-muted">{{ position.name }} -></h6>
+                <p class="card-text mb-0">Industry: <i>{{ position.industry }}</i></p>
+                <p class="card-text mb-0">Type: <i>{{ position.type }}</i></p>
+                <p class="card-text mb-0">Volatility: <strong>{{ position.volatility | number:'1.0-2' }}</strong></p>
+                <p class="card-text mb-0">Price: <strong>{{ position.price | number:'1.0-2' }}</strong></p>
+              </div>
+          </div> 
+        </div>
+      </div>
+  </div>
+</div>

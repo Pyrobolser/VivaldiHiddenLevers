@@ -1,0 +1,31 @@
+
+<div class="card">
+  <div class="card-header" role="tab" id="headingThree3">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
+    aria-expanded="false" aria-controls="collapseThree3">
+      <h5 class="mb-0">
+          Stress Test <i class="fas fa-angle-down rotate-icon"></i>
+      </h5>
+    </a>
+  </div>
+  <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
+    data-parent="#accordionEx">
+    <div class="card-block">
+      <h5 class="card-hl card-title ml-2 mt-2">Results</h5>
+      <div class="row mb-2" *ngIf=stressTestInput.results>
+        <div class="col-md-12 pl-4">
+          <div *ngFor="let result of stressTestInput.results" class="mb-2 pt-2 border-bottom">
+            <h6 class="card-subtitle text-muted">{{ result.name }} -></h6>
+            <p class="card-text mb-0">{{ result.description }}</p>
+            <p class="card-text mb-0">Total impact: <i>{{ result.totalImpact | number:'1.0-2' }}</i></p>
+            <div *ngFor="let position of result.positions" class="mb-2 pt-2">
+              <p class="card-text mb-0">Ticker: <strong>{{ position.ticker }}</strong></p>
+              <p class="card-text mb-0">Quantity: <strong>{{ position.quantity | number:'1.0-2' }}</strong></p>
+              <p class="card-text mb-0">Impact percentage: <strong>{{ position.impactPct | number:'1.0-2' }}%</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

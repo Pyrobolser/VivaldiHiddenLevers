@@ -1,0 +1,23 @@
+<h1 class="bd-title mt-0">Clients</h1>
+<p class="bd-lead">Choose a client in the list below to display the related HiddenLevers informations</p>
+
+<p *ngIf="!vm"><em>Loading...</em></p>
+
+<form [formGroup]="clientsForm" *ngIf="vm">
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <select formControlName="name" (change)="onSelect($event.target.value)" class="custom-select">
+        <option value="-1"></option>
+        <option *ngFor="let client of vm.clients" value={{client.id}} >{{ client.name }}</option>
+      </select>
+    </div>
+  </div>
+</form>
+
+<div class="container" *ngIf="idOutput > 0">
+  <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+    <app-client-details [detailsInput]="vmDetails" [mailTo]="clientMailTo"></app-client-details>
+    <app-client-riskprofile [riskProfileInput]="vmRiskProfile"></app-client-riskprofile>
+    <app-client-stresstest [stressTestInput]="vmStressTest"></app-client-stresstest>
+  </div>
+</div>

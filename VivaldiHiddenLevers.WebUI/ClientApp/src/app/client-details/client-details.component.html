@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header" role="tab" id="headingOne1">
+    <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+      aria-controls="collapseOne1">
+      <h5 class="mb-0">
+        Profile details <i class="fas fa-angle-down rotate-icon"></i>
+      </h5>
+    </a>
+  </div>
+  <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+    data-parent="#accordionEx">
+    <div class="card-body">
+      <h5 class="card-title">{{ detailsInput.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Email: {{ detailsInput.email }}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Phone: {{ detailsInput.phone }}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Advisor email: {{ detailsInput.advisorEmail }}</h6>
+      <div class="col-12 col-lg-3 mt-3">
+        <a type="button" role="button" target="_top" href="{{ mailTo }}"
+        class="btn btn-outline-success btn-block"><span class="fa fa-envelope"></span> Send RTQ</a>
+      </div>
+    </div>
+  </div>
+</div>
